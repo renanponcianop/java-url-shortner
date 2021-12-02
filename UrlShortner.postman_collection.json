@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "5c248218-c479-4c89-bcc6-f3dcfbb4b6bb",
+		"name": "UrlShortner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shortner",
+			"item": [
+				{
+					"name": "New url",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"https://www.google.com.br\",\r\n    \"prefix\":\"google\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/shortner",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortner"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - New url",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\":\"https://www.google.com.br\",\r\n    \"prefix\":\"google\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/shortner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"shortner"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Dec 2021 18:36:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "404 - Duplicared Prefix",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\":\"https://www.google.com.br\",\r\n    \"prefix\":\"google\",\r\n    \"access\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/shortner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"shortner"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Dec 2021 19:03:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Cannot save URL because this prefix is already in use"
+						},
+						{
+							"name": "400 - Field validations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"access\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/shortner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"shortner"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Dec 2021 20:46:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"validation error\",\n    \"fieldErrors\": [\n        {\n            \"field\": \"prefix\",\n            \"error\": \"This field cannot be null\"\n        },\n        {\n            \"field\": \"access\",\n            \"error\": \"Access should not be greater than 0\"\n        },\n        {\n            \"field\": \"url\",\n            \"error\": \"This field cannot be null\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get url by prefix",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/shortner?prefix=google",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortner"
+							],
+							"query": [
+								{
+									"key": "prefix",
+									"value": "google"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get url by prefix",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/shortner?prefix=google",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"shortner"
+									],
+									"query": [
+										{
+											"key": "prefix",
+											"value": "google"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Dec 2021 19:04:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"url\": \"https://www.google.com.br\",\n    \"prefix\": \"google\",\n    \"access\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Url",
+			"item": [
+				{
+					"name": "Redirect to Url By prefix",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/redirect/google",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"redirect",
+								"google"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
