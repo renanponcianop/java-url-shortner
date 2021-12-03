@@ -12,11 +12,10 @@ This is a simple project to make a url shortner backend. Feel free to fork it an
 
 ## How to init
 
-This project was made to run with docker, so you just have to have maven installed to build the project and start the docker.
+This project was made to run with docker, so you just need to have docker installed.
 
 Commands:
 ```
-mvn clean install
 docker-compose up --build 
 ```
 
