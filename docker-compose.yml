@@ -23,6 +23,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     networks:
       - spring_net
+    volumes:
+      - ./urlshortner:/urlshortner
 
   mongo-express:
     image: mongo-express
@@ -35,6 +37,8 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo:27017/
     networks:
       - spring_net
+    volumes:
+      - ./urlshortner:/urlshortner
 networks:
   spring_net:
     driver: bridge

@@ -30,6 +30,9 @@ public class ShortnerService {
 
     public Url findAndRedirect(String prefix){
         Url url = findByPrefix(prefix);
+        if (Objects.isNull(url)){
+            throw new DuplicatedUrlException("Cannot find prefix URL");
+        }
         int currentAccessCount = url.getAccess();
         url.setAccess(currentAccessCount+1);
         Url urlCounted = urlRepository.save(url);

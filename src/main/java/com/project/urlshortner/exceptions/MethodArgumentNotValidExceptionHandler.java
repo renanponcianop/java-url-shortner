@@ -1,4 +1,4 @@
-package com.project.urlshortner.controllers;
+package com.project.urlshortner.exceptions;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.core.Ordered;
