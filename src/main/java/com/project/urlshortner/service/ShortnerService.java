@@ -1,6 +1,7 @@
 package com.project.urlshortner.service;
 
 import com.project.urlshortner.exceptions.DuplicatedUrlException;
+import com.project.urlshortner.exceptions.PrefixNotFoundException;
 import com.project.urlshortner.models.DTO.UrlDto;
 import com.project.urlshortner.models.entities.Url;
 import com.project.urlshortner.models.repository.UrlRepository;
@@ -31,7 +32,7 @@ public class ShortnerService {
     public Url findAndRedirect(String prefix){
         Url url = findByPrefix(prefix);
         if (Objects.isNull(url)){
-            throw new DuplicatedUrlException("Cannot find prefix URL");
+            throw new PrefixNotFoundException("Cannot find prefix URL");
         }
         int currentAccessCount = url.getAccess();
         url.setAccess(currentAccessCount+1);
