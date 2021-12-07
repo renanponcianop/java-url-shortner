@@ -261,6 +261,60 @@
 							"body": "{\n    \"url\": \"https://www.google.com.br\",\n    \"prefix\": \"google\",\n    \"access\": 0\n}"
 						}
 					]
+				},
+				{
+					"name": "Get QRCode by prefix",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/shortner/qrcode?prefix=google",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortner",
+								"qrcode"
+							],
+							"query": [
+								{
+									"key": "prefix",
+									"value": "google"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get QRCode by prefix",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/shortner/qrcode?prefix=sabao",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"shortner",
+										"qrcode"
+									],
+									"query": [
+										{
+											"key": "prefix",
+											"value": "sabao"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				}
 			]
 		},

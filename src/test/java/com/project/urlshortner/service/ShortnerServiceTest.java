@@ -22,8 +22,8 @@ public class ShortnerServiceTest {
 
     @Test
     public void checkUrlCount(){
-        Url url = new Url(null, "https://www.google.com.br", "google", 0);
-        doReturn(url).when(urlRepository).findByPrefix("google");
+        Url url = new Url(null, "https://www.google.com.br", "google.png", 0);
+        doReturn(url).when(urlRepository).findByPrefix("google.png");
         when(urlRepository.save(any(Url.class)))
                 .thenAnswer(i -> i.getArguments()[0]);
 
