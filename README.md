@@ -2,6 +2,10 @@
 
 This is a simple project to make a url shortner backend. Feel free to fork it and  use as you want.
 
+## What the project do?
+
+This project is only to short a URL and contabilizate access count. I'm also created a service to create a QRCode, so, It keeps redirecting to the target URL but also counting the access.
+
 ## Build with
 
 - Java

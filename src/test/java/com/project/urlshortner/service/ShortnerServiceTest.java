@@ -22,22 +22,22 @@ public class ShortnerServiceTest {
 
     @Test
     public void checkUrlCount(){
-        Url url = new Url(null, "https://www.google.com.br", "google", 0);
-        doReturn(url).when(urlRepository).findByPrefix("google");
+        Url url = new Url(null, "https://www.google.com.br", "google.png", 0);
+        doReturn(url).when(urlRepository).findByPrefix("google.png");
         when(urlRepository.save(any(Url.class)))
                 .thenAnswer(i -> i.getArguments()[0]);
 
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        Url urlCounted = service.findAndRedirect("google");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        Url urlCounted = service.findAndRedirect("google.png");
         Assert.assertEquals(java.util.Optional.of(5).get(),urlCounted.getAccess());
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        service.findAndRedirect("google");
-        urlCounted = service.findAndRedirect("google");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        service.findAndRedirect("google.png");
+        urlCounted = service.findAndRedirect("google.png");
         Assert.assertEquals(java.util.Optional.of(10).get(),urlCounted.getAccess());
     }
 }
