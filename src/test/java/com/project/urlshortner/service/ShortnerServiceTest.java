@@ -27,17 +27,17 @@ public class ShortnerServiceTest {
         when(urlRepository.save(any(Url.class)))
                 .thenAnswer(i -> i.getArguments()[0]);
 
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        Url urlCounted = service.findAndRedirect("google.png");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        Url urlCounted = service.findAndRedirect("google");
         Assert.assertEquals(java.util.Optional.of(5).get(),urlCounted.getAccess());
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        service.findAndRedirect("google.png");
-        urlCounted = service.findAndRedirect("google.png");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        service.findAndRedirect("google");
+        urlCounted = service.findAndRedirect("google");
         Assert.assertEquals(java.util.Optional.of(10).get(),urlCounted.getAccess());
     }
 }
